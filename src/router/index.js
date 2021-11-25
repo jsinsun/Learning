@@ -3,6 +3,10 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+
+//https://www.jianshu.com/p/4f2566b67989
+
+
 const routes = [
   {
     path: '/',
@@ -15,12 +19,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/work/start.vue')
   },
   {
-    path: 'work/process/leave/form/:Leave',
+    path: '/work/process/leave/form/:Leave',
     name: 'process',
     component: () => import(/* webpackChunkName: "about" */ '../views/work/process.vue'),
   },
   {
-    path: 'work/process/leave/handle/:Leave',
+    path: '/work/process/leave/handle/:Leave',
     name: 'audit',
     component: () => import(/* webpackChunkName: "about" */ '../views/work/audit.vue'),
   },
@@ -51,7 +55,7 @@ const routes = [
   },
   {
     path: '/flow/deploy',
-    name: 'model',
+    name: 'deploy',
     component: () => import(/* webpackChunkName: "about" */ '../views/flow/deploy.vue')
   },
   {
@@ -71,14 +75,6 @@ const router = new VueRouter({
   routes
 })
 
-// let oneRun = true // 通过oneRun变量控制 避免陷入死循环
-// router.beforeEach((to, from, next) => {
-//   if (oneRun) {
-//     oneRun = false // 必须在creatNewRouter() 执行
-//     // createNewRouter();
-//     console.log(to)
-//     next({ ...to, replace: true })// 必不可少的，确保你的动态路由创建成功再去执行其它代码
-//   }
-// })
+
 
 export default router

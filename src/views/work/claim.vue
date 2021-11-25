@@ -1,10 +1,10 @@
 <template>
   <div class="claim">
-   <el-row>
-     <el-form :inline="true" class="search">
+   <el-row >
+     <el-form  class="search" label-width="100px" size="small">
         <el-col :span="6">
-               <el-form-item style="" label="流程分类:">
-                                 <el-select v-model="value" placeholder="请选择">
+               <el-form-item  label="流程分类:">
+                                 <el-select v-model="value" placeholder="请选择" size="small">
     <el-option
       v-for="item in options"
       :key="item.value"
@@ -142,11 +142,5 @@ export default {
    padding: 1rem;
    background-color: #fff;
    border-radius: 2px;
-
-     .search /deep/  .el-input__inner {
-    height: 32px;
-    line-height: 32px;
-  }
-
   }
 </style>

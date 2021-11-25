@@ -106,7 +106,7 @@
 export default {
   data () {
     return {
-      input: '',
+      title: '',
       tableData: [{
         name: '请假流程',
         step: '人事审批',

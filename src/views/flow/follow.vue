@@ -1,7 +1,7 @@
 <template>
   <div class="model">
    <el-row>
-         <el-form :inline="true" class="search">
+         <el-form  class="search" label-width="100px" size="small">
         <el-col :span="6">
                <el-form-item style="" label="执行id:">
           <el-input v-model="title" placeholder="执行id"></el-input>
