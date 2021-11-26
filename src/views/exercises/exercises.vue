@@ -18,18 +18,22 @@ export default {
     name: "desc",
   }),
   mounted() {
-   // console.log(this.$store.getters.donetodos);
-   //console.log(JSON.stringify(this.$store.state.numbers));
-
-    //this.$store.commit('convert')
-    // this.$store.commit({
-    //   type: "increment",
-    //   name: "jsin",
-    // });
-
-    // this.$store.dispatch("convert");
-    // console.log(this.$store.state.numbers);
+    //在getter里面取值
+    console.log(this.$store.getters.donetodos);
+    //调用mutation
+    this.$store.commit("convert");
+    this.$store.commit({
+      type: "increment",
+      name: "jsin",
+    });
+    //调用action
+    this.$store.dispatch("convert");
+    console.log(this.$store.state.numbers);
+    //mapMutations 映射
     this.add();
+
+    //在命令空间里里面取值
+    console.log(this.$store.state.moduleA.count1);
   },
   methods: {
     ...mapMutations(["increment", "convert", "property"]),

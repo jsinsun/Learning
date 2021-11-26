@@ -2,8 +2,28 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { SOME_MUTATION } from './mutation/mutation-types'
 import { getData } from '../utils/index'
+import { account } from './modules/index'
 
 Vue.use(Vuex)
+
+const moduleA = {
+  state: () => ({
+    count1: 0
+  }),
+  mutations: {
+    //同命名空间mutations会调用相同的方法
+    increment1(state) {
+      // 这里的 `state` 对象是模块的局部状态
+      console.log('怎么调到这里来了')
+      state.count1++
+    }
+  },
+  getters: {
+    doubleCount(state) {
+      return state.count1 * 2
+    }
+  }
+}
 
 const store = new Vuex.Store({
   //保存所有数据，以对象的方式导出
@@ -80,7 +100,20 @@ const store = new Vuex.Store({
   actions: {
     convert({ commit }) {
       commit('convert');
+    },
+    //异步
+    async actionA({ commit }) {
+      commit('property', await convert())
+    },
+    actionB({ commit }) {
+      return new Promise((resolve, reject) => {
+        commit('SOME_MUTATION');
+      })
     }
+  },
+  modules: {
+    moduleA,
+    account
   }
 })
 

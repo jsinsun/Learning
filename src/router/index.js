@@ -7,6 +7,7 @@ Vue.use(VueRouter)
 //https://www.jianshu.com/p/4f2566b67989
 
 
+
 const routes = [
   {
     path: '/',
@@ -74,13 +75,11 @@ const routes = [
     component:()=>import('../views/exercises/exercises.vue')
   }
 
-
 ]
 
 const router = new VueRouter({
   routes
 })
-
 
 
 export default router
