@@ -67,7 +67,13 @@ const routes = [
     path: '/flow/follow',
     name: 'follow',
     component: () => import(/* webpackChunkName: "about" */ '../views/flow/follow.vue')
+  },
+  {
+    path:'/exercises/exercises',
+    name:'exercises',
+    component:()=>import('../views/exercises/exercises.vue')
   }
+
 
 ]
 

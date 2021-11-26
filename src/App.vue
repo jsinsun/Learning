@@ -42,11 +42,18 @@
               <el-menu-item index="/flow/manager">流程管理</el-menu-item>
               <el-menu-item index="/flow/follow">流程跟踪</el-menu-item>
             </el-submenu>
+
+            <el-submenu index="5">
+              <template slot="title">
+                <i class="el-icon-document"></i>练习
+              </template>
+               <el-menu-item index="/exercises/exercises">练习</el-menu-item>
+            </el-submenu>
           </el-menu>
         </el-col>
         <el-col :span="21">
           <div class="head">top</div>
-          <div class="page"> <router-view></router-view></div>
+          <div class="page"><router-view></router-view></div>
         </el-col>
       </el-row>
     </div>
@@ -57,15 +64,15 @@
 // @ is an alias to /src
 
 export default {
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {},
+  mounted() {},
   methods: {
-    handleOpen (key, keyPath) {},
-    handleClose (key, keyPath) {}
-  }
-}
+    handleOpen(key, keyPath) {},
+    handleClose(key, keyPath) {},
+  },
+};
 </script>
 
 <style lang="less">
@@ -105,14 +112,14 @@ body {
     background-color: #48576a !important;
   }
 
-   .head {
-          width:100%;
-          height: 100px;
-          background-color: #fff;
-        }
+  .head {
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+  }
 
-    .page{
-       padding: 10px;
-    }
+  .page {
+    padding: 10px;
+  }
 }
 </style>

@@ -2,12 +2,12 @@
   <div class="notice">
     <el-row>
       <el-form class="search" label-width="100px" size="small">
-        <el-col :span="6">
+        <el-col :xl="6" :lg="5">
           <el-form-item style="" label="通知标题:">
             <el-input v-model="title" placeholder="通知标题"></el-input>
           </el-form-item>
         </el-col>
-        <el-col :span="6">
+        <el-col :xl="6" :lg="5">
           <el-form-item style="" label="通知类型:">
             <el-select v-model="value" placeholder="请选择">
               <el-option
@@ -20,7 +20,7 @@
             </el-select>
           </el-form-item>
         </el-col>
-        <el-col :span="8">
+        <el-col :xl="8" :lg="8">
           <el-form-item style="" label="通知时间:">
             <el-date-picker
               v-model="value1"
@@ -32,7 +32,7 @@
             </el-date-picker>
           </el-form-item>
         </el-col>
-        <el-col :span="4">
+        <el-col :xl="4" :lg="6">
           <el-form-item style="" label="">
             <el-button size="small" type="primary" icon="el-icon-search"
               >搜索</el-button
@@ -120,6 +120,7 @@
           icon="el-icon-circle-plus-outline"
           >保 存</el-button
         >
+
         <el-button
           type=""
           @click="dialogVisible = false"
@@ -132,6 +133,7 @@
 </template>
 <script>
 import noticeformVue from "../../components/noticeform.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     noticeformVue,
@@ -206,6 +208,11 @@ export default {
         console.log(1);
       });
     },
+  },
+  mounted(){
+    console.log(this.$store.state.desc);
+    this.$store.commit('increment');
+    console.log('...',this.$store.state.desc);
   },
 };
 </script>
