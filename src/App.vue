@@ -12,10 +12,6 @@ export default {
     return {};
   },
   mounted() {},
-  methods: {
-    handleOpen(key, keyPath) {},
-    handleClose(key, keyPath) {},
-  },
 };
 </script>
 

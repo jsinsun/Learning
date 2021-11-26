@@ -1,12 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Layout from '@/layout'
 
 Vue.use(VueRouter)
 
 
 //https://www.jianshu.com/p/4f2566b67989
 
-
+const newroutes = [
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/notice',
+    hidden: true,
+    children: [
+      {
+        path: 'notice',
+        name: 'notice',
+        component: () => import('../views/desk/notice.vue'),
+        meta: {
+          title: '首页',
+          icon: 'dashboard',
+          affix: true
+        }
+      }
+    ]
+  }
+]
 
 const routes = [
   {
@@ -70,15 +90,15 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/flow/follow.vue')
   },
   {
-    path:'/exercises/exercises',
-    name:'exercises',
-    component:()=>import('../views/exercises/exercises.vue')
+    path: '/exercises/exercises',
+    name: 'exercises',
+    component: () => import('../views/exercises/exercises.vue')
   }
 
 ]
 
 const router = new VueRouter({
-  routes
+  routes: newroutes
 })
 
 
