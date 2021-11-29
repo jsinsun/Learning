@@ -15,14 +15,14 @@ const newroutes = [
     hidden: true,
     children: [
       {
-        path: 'notice',
+        path: '/notice',
         name: 'notice',
-        component: () => import('../views/desk/notice.vue'),
-        meta: {
-          title: '首页',
-          icon: 'dashboard',
-          affix: true
-        }
+        component: () => import('../views/desk/notice.vue')
+      },
+      {
+        path: '/exercises',
+        name: 'exercises',
+        component: () => import('../views/exercises/exercises.vue')
       }
     ]
   }

@@ -135,6 +135,7 @@
 import noticeformVue from "../../components/noticeform.vue";
 import { mapState } from "vuex";
 export default {
+  name:'notice',
   components: {
     noticeformVue,
   },
@@ -210,9 +211,10 @@ export default {
     },
   },
   mounted(){
-    console.log(this.$store.state.desc);
-    this.$store.commit('increment');
-    console.log('...',this.$store.state.desc);
+    console.log(this.$store.state.moduleA.count1);
+    //命名空间
+    this.$store.commit('moduleA/increment1');
+    console.log('...',this.$store.state.moduleA.count1);
   },
 };
 </script>

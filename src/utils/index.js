@@ -12,3 +12,15 @@ export const getData = (tree, type = 'child', pid = null, res = []) => {
   });
   return res;
 }
+
+export const flatten = (arr, res = []) => {
+  arr.forEach(item => {
+    //Object.prototype.toString.call(arr) === "[object Array]"
+    if (Array.isArray(item)) {
+      flatten(item)
+    } else {
+      res.push(item);
+    }
+  })
+  return res;
+}

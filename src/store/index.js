@@ -7,6 +7,7 @@ import { account } from './modules/index'
 Vue.use(Vuex)
 
 const moduleA = {
+  namespaced: true,
   state: () => ({
     count1: 0
   }),
@@ -80,7 +81,9 @@ const store = new Vuex.Store({
       state.desc = 'Vuex是状态管理,我说的——' + payload.name;
     },
     convert: (state) => {
-      state.numbers = state.numbers.join().split(',');
+      //数组扁平化
+      //state.numbers = state.numbers.join().split(',');
+      state.numbers = state.numbers.flat(Infinity);
     },
     property: (state) => {
       //以新对象替换老对象。例如，利用对象展开运算符

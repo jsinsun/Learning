@@ -38,7 +38,7 @@
 
       <el-submenu index="5">
         <template slot="title"> <i class="el-icon-document"></i>练习 </template>
-        <el-menu-item index="/exercises/exercises">练习</el-menu-item>
+        <el-menu-item index="/exercises">练习</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
@@ -47,6 +47,13 @@
 <script>
 export default {
   //https://blog.csdn.net/keovady/article/details/89813582 TagsView导航栏
+  data() {
+    return {};
+  },
+  methods: {
+    handleOpen(key, keyPath) {},
+    handleClose(key, keyPath) {},
+  },
 };
 </script>
 <style lang="less" scoped>

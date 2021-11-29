@@ -21,10 +21,11 @@ export default {
   components: {
     sidebar,
   },
-  data() {},
+  data() {
+    return {}
+  },
   methods: {
-    handleOpen(key, keyPath) {},
-    handleClose(key, keyPath) {},
+
   },
 };
 </script>

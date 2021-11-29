@@ -4,14 +4,17 @@
     <div>
       <div>{{ this.$store.state.desc }}</div>
     </div>
-    <div></div>
+    <div>{{ Object.prototype.toString.call(arr) }}</div>
   </div>
 </template>
 <script>
 import { mapMutations, mapState } from "vuex";
 export default {
+  name: "exercises",
   data() {
-    return {};
+    return {
+      arr: [1, 2, 3, 4],
+    };
   },
   computed: mapState({
     count: "count",
