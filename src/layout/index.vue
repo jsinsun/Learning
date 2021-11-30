@@ -8,25 +8,39 @@
         <sidebar></sidebar>
       </el-col>
       <el-col :span="21">
-        <div class="head">top</div>
-        <div class="page"><router-view></router-view></div>
+        <div class="head">
+          <header1>
+            <template slot-scope="user">
+              <div class="tmpl">
+                <span v-for="item in user.data" :key='item'>{{ item }}</span>
+              </div>
+            </template>
+          </header1>
+        </div>
+        <div class="page"><router-view :key="$route.path"></router-view></div>
       </el-col>
     </el-row>
   </div>
 </template>
 <script>
 import sidebar from "./components/sidebar";
+import header1 from "./header.vue";
 
 export default {
   components: {
     sidebar,
+    header1,
   },
   data() {
-    return {}
+    return {
+      html: '<div style="color:#333;">直接上标签</div>',
+    };
   },
-  methods: {
-
+  mounted() {
+    console.log(this.$route);
   },
+  computed: {},
+  methods: {},
 };
 </script>
 
