@@ -41,13 +41,14 @@
    <el-row>
      <el-col :span="6" :offset="9" style="padding:30px 0;">
       <el-button type="primary" icon="el-icon-check">提 交</el-button>
-      <el-button type="" icon="el-icon-delete">清 空</el-button>
+      <el-button type="" icon="el-icon-delete" @click.native="$router.go(-1);">清 空</el-button>
      </el-col>
    </el-row>
   </div>
 </template>
 <script>
 export default {
+  name:'process',
   data () {
     return {
       activeNames: '1',

@@ -12,12 +12,22 @@
           <header1>
             <template slot-scope="user">
               <div class="tmpl">
-                <span v-for="item in user.data" :key='item'>{{ item }}</span>
+                <span v-for="item in user.data" :key="item">{{ item }}</span>
               </div>
             </template>
           </header1>
         </div>
-        <div class="page"><router-view :key="$route.path"></router-view></div>
+        <div class="page">
+          <router-view
+            v-if="!$route.meta.keepAlive"
+          ></router-view>
+          <!-- 需要缓存的视图组件 -->
+          <keep-alive :include="include">
+            <router-view
+              v-if="$route.meta.keepAlive"
+            ></router-view>
+          </keep-alive>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -33,14 +43,19 @@ export default {
   },
   data() {
     return {
-      html: '<div style="color:#333;">直接上标签</div>',
+      include: [],
     };
   },
-  mounted() {
-    console.log(this.$route);
+  watch: {
+    $route(to, from){
+      console.log(to);
+      //注意,不是router.js中的name,而是单个vue组件中的name属性.建议将router.js中的name和vue组件的name保持一致,不要混乱.
+      if (to.meta.keepAlive) {
+        !this.include.includes(to.name) && this.include.push(to.name);
+        console.log(this.include);
+      }
+    },
   },
-  computed: {},
-  methods: {},
 };
 </script>
 

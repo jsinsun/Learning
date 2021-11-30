@@ -6,11 +6,12 @@ Vue.use(VueRouter)
 
 
 //https://www.jianshu.com/p/4f2566b67989
+//https://segmentfault.com/a/1190000009506097
 
 const newroutes = [
   {
     path: '/login',
-    name:'login',
+    name: 'login',
     component: () => import('../views/login')
   },
   {
@@ -28,6 +29,22 @@ const newroutes = [
         path: '/exercises',
         name: 'exercises',
         component: () => import('../views/exercises/exercises.vue')
+      },
+      {
+        path: '/work/start',
+        name: 'start',
+        component: () => import(/* webpackChunkName: "about" */ '../views/work/start.vue'),
+        meta: {
+          keepAlive: true //需要被缓存
+        }
+      },
+      {
+        path: '/work/process/leave/form/:Leave',
+        name: 'process',
+        component: () => import(/* webpackChunkName: "about" */ '../views/work/process.vue'),
+        meta: {
+          keepAlive: true //需要被缓存
+        }
       }
     ]
   }

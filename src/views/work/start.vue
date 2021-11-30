@@ -180,6 +180,7 @@
 </template>
 <script>
 export default {
+  name:'start',
   data() {
     return {
       title: "",

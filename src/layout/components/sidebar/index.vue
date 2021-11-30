@@ -5,8 +5,6 @@
       router
       :default-active="$route.name"
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       background-color="#324157"
       text-color="#bfcbd9"
       active-text-color="#049eff"
@@ -51,8 +49,10 @@ export default {
     return {};
   },
   methods: {
-    handleOpen(key, keyPath) {},
-    handleClose(key, keyPath) {},
+    // handleOpen(key, keyPath) {
+
+    // },
+    // handleClose(key, keyPath) {},
   },
 };
 </script>
