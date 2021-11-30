@@ -9,6 +9,11 @@ Vue.use(VueRouter)
 
 const newroutes = [
   {
+    path: '/login',
+    name:'login',
+    component: () => import('../views/login')
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/notice',
