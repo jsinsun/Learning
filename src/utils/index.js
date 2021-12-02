@@ -15,7 +15,7 @@ export const getData = (tree, type = 'child', pid = null, res = []) => {
 //多维数组扁平化
 export const flatten = (arr, res = []) => {
   arr.forEach(item => {
-    //Object.prototype.toString.call(arr) === "[object Array]"
+    //判断对象是否为数组 Object.prototype.toString.call(arr) === "[object Array]"
     if (Array.isArray(item)) {
       flatten(item)
     } else {

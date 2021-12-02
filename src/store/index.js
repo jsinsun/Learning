@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { SOME_MUTATION } from './mutation/mutation-types'
-import { getData } from '../utils/index'
+import { getData, flatten } from '../utils/index'
 import { account } from './modules/index'
 
 Vue.use(Vuex)
@@ -84,6 +84,7 @@ const store = new Vuex.Store({
       //数组扁平化
       //state.numbers = state.numbers.join().split(',');
       state.numbers = state.numbers.flat(Infinity);
+      //state.numbers = flatten(state.numbers);
     },
     property: (state) => {
       //以新对象替换老对象。例如，利用对象展开运算符
@@ -111,6 +112,7 @@ const store = new Vuex.Store({
     actionB({ commit }) {
       return new Promise((resolve, reject) => {
         commit('SOME_MUTATION');
+        resolve();
       })
     }
   },
