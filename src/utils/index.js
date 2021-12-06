@@ -25,6 +25,33 @@ export const flatten = (arr, res = []) => {
   return res;
 }
 
+//对象扁平化
+export const process = (key, value, res = {}) => {
+  // 首先判断是基础数据类型还是引用数据类型
+  if (Object(value) !== value) { // 基础数据类型
+    if (key) res[key] = value
+  }
+  //判断对象是否是数组
+  else if (Object.prototype.toString.call(value) === "[object Array]") {
+    value.forEach((item, index) => {
+      process(`${key}[${index}]`, item)
+    })
+
+    if (value.length === 0) res[key] = []
+  }
+  else {
+    //遍历对象
+    const obj = Object.keys(value)
+    obj.forEach(item => {
+      process(key ? `${key}.${item}` : `${item}`, value[item])
+    })
+    if (obj.length === 0 && key) res[key] = {}
+  }
+  return res;
+}
+
+
+
 //对象型数组排序
 //attr：根据该属性排序；rev：升序1或降序-1，不填则默认为1
 export const sortBy = (attr, rev = 1) => {
@@ -49,3 +76,5 @@ export const getObjArrMax = (arr, prop) => {
   }
   return null;
 }
+
+
