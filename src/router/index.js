@@ -28,11 +28,11 @@ const newroutes = [
         name: 'notice',
         component: () => import('../views/desk/notice.vue')
       },
-      //   {
-      //     path: '/exercises',
-      //     name: 'exercises',
-      //     component: () => import('../views/exercises/exercises.vue')
-      //   },
+      {
+        path: '/exercises',
+        name: 'exercises',
+        component: () => import('../views/exercises/exercises.vue')
+      },
       //   {
       //     path: '/work/start',
       //     name: 'start',

@@ -2,18 +2,30 @@
   <div class="exercises">
     <div></div>
     <div>
-      <div>{{ this.$store.state.desc }}</div>
+      <pagination
+        :config="pageConfig"
+        @currentPage="handCurrenPage"
+      ></pagination>
     </div>
     <div>{{ Object.prototype.toString.call(arr) }}</div>
   </div>
 </template>
 <script>
 import { mapMutations, mapState } from "vuex";
+import pagination from "../../components/Pagination.vue";
+
 export default {
   name: "exercises",
+  components: {
+    pagination,
+  },
   data() {
     return {
       arr: [1, 2, 3, 4],
+      pageConfig: {
+        total: 35,
+        pageSize: 7,
+      },
     };
   },
   computed: mapState({
@@ -43,6 +55,9 @@ export default {
     ...mapMutations({
       add: "SOME_MUTATION",
     }),
+    handCurrenPage(val) {
+      console.log(val);
+    },
   },
 };
 </script>
@@ -71,9 +86,9 @@ export default {
     justify-content: center;
 
     div {
-      width: 200px;
-      height: 200px;
-      background: chocolate;
+      width: 80%;
+      height: 500px;
+      background: #fff;
       align-items: center;
       white-space: pre-line;
     }
